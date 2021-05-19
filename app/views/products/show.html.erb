@@ -1,29 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @product.nome %>
-</p>
+<div class="container">
+  <p>
+    <% if @product.cover.attached? %>
+          <%= image_tag url_for(@product.cover)%>
+    <% end %>
+  </p>
 
-<p>
-  <strong>Descrizione:</strong>
-  <%= @product.descrizione %>
-</p>
+  <p>
+    <strong>Nome:</strong>
+    <%= @product.nome %>
+  </p>
 
-<p>
-  <strong>Ingredienti:</strong>
-  <%= @product.ingredienti %>
-</p>
+  <p>
+    <strong>Descrizione:</strong>
+    <%= @product.descrizione %>
+  </p>
 
-<p>
-  <strong>Peso:</strong>
-  <%= @product.peso %>
-</p>
+  <p>
+    <strong>Ingredienti:</strong>
+    <%= @product.ingredienti %>
+  </p>
 
-<p>
-  <strong>Prezzokg:</strong>
-  <%= @product.prezzokg %>
-</p>
+  <p>
+    <strong>Peso:</strong>
+    <%= @product.peso %>
+  </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+  <p>
+    <strong>Prezzokg:</strong>
+    <%= @product.prezzokg %>
+  </p>
+</div>
+
+
+<%= link_to 'Modifica', edit_product_path(@product), class: 'btn btn-primary' %> |
+<%= link_to 'indietro', products_path, class: 'btn btn-primary'%>
